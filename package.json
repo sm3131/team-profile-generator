@@ -1,0 +1,28 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Webpage generator for team profiles within a company",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sm3131/team-profile-generator.git"
+  },
+  "author": "Sammi Moore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sm3131/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/sm3131/team-profile-generator#readme",
+  "devDependencies": {
+    "jest": "^27.4.5"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
