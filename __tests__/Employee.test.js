@@ -14,3 +14,8 @@ test('gets employee name', () => {
     expect(employee.getName()).toBe('Joe');
 });
 
+test('gets employee id', () => {
+    const employee = new Employee('Joe', 'email@email.com');
+
+    expect(employee.getId()).toEqual(expect.any(Number));
+})
