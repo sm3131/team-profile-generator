@@ -44,6 +44,9 @@ function workerPrompts() {
         //     default:'Finish Building Team'
         // }
     ])
+    // .then(mangerInfo => {
+
+    // })
     .then(()=> {
         return addTeamMember();
     })
