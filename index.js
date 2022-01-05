@@ -35,20 +35,44 @@ function workerPrompts() {
             type: 'text',
             name: 'officeNumber',
             message: "What is your manager's office number?"
-        },
-        {
-            type:'list',
-            name:'addWorkers',
-            message:'If you would like to add a team member select from the list below. If not select finish building team to create your webpage.',
-            choices:['Engineer', 'Intern', 'Finish Building Team'],
-            default:'Finish Building Team'
         }
+        // {
+        //     type:'list',
+        //     name:'addWorkers',
+        //     message:'If you would like to add a team member select from the list below. If not select finish building team to create your webpage.',
+        //     choices:['Engineer', 'Intern', 'Finish Building Team'],
+        //     default:'Finish Building Team'
+        // }
     ])
+    .then(()=> {
+        return addTeamMember();
+    })
+}
+
+function addTeamMember() {
+    return inquirer 
+            .prompt({
+                type:'list',
+                name:'addWorkers',
+                message:'If you would like to add a team member select from the list below. If not select finish building team to create your webpage.',
+                choices:['Engineer', 'Intern', 'Finish Building Team'],
+                default:'Finish Building Team'
+            })
+        .then(({addWorkers}) => {
+            console.log(addWorkers);
+            if(addWorkers === 'Engineer'){
+                return addEngineer();
+            } else if (addWorkers === 'Intern') {
+                return addIntern();
+            } else {
+                console.log('FINISHED');
+            }
+        })
 }
 
 function addEngineer() {
 
-    inquirer
+    return inquirer
         .prompt([
             {
                 type:'text',
@@ -69,13 +93,23 @@ function addEngineer() {
                 type: 'text',
                 name: 'github',
                 message: "What is your engineer's GitHub username?"
-            },
+            }
+            // {
+            //     type:'list',
+            //     name:'addWorkers',
+            //     message:'If you would like to add a team member select from the list below. If not select finish building team to create your webpage.',
+            //     choices:['Engineer', 'Intern', 'Finish Building Team'],
+            //     default:'Finish Building Team'
+            // }
         ])
+        .then(()=> {
+            return addTeamMember();
+        })
 }
 
 function addIntern() {
 
-    inquirer
+    return inquirer
         .prompt([
             {
                 type:'text',
@@ -98,6 +132,9 @@ function addIntern() {
                 message: "What is your intern's GitHub username?"
             },
         ])
+        .then(()=> {
+            return addTeamMember();
+        })
 }
 
 startPrompts()
@@ -108,13 +145,13 @@ startPrompts()
         return false;
     }
 })
-.then(workerAnswers => {
-    console.log(workerAnswers);
-    if(workerAnswers.addWorkers === 'Engineer'){
-        return addEngineer();
-    } else if (workerAnswers.addWorkers === 'Intern') {
-        return addIntern();
-    } else {
-        console.log('FINISHED');
-    }
-})
+// .then(workerAnswers => {
+//     console.log(workerAnswers);
+//     if(workerAnswers.addWorkers === 'Engineer'){
+//         return addEngineer();
+//     } else if (workerAnswers.addWorkers === 'Intern') {
+//         return addIntern();
+//     } else {
+//         console.log('FINISHED');
+//     }
+// })
