@@ -1,19 +1,41 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-function startPrompts() {
+function StartPrompts() {
     console.log("Welcome to the team profile generator! With this application you can enter your team member's names and information in order to create a team profile webpage.");
 
-    return inquirer
+    // return inquirer
+    //     .prompt({
+    //         type: 'confirm',
+    //         name: 'confirmPrompts',
+    //         message: 'Would you like to start creating your team profile?',
+    //         default: true
+    //     })
+        // .then(answer => {
+        //     if (answer.confirmPrompts) {
+        //        return workerPrompts();
+        //     } else {
+        //         return false;
+        //     }
+        // })
+
+        inquirer
         .prompt({
             type: 'confirm',
             name: 'confirmPrompts',
             message: 'Would you like to start creating your team profile?',
             default: true
         })
+        .then(answer => {
+            if (answer.confirmPrompts === true) {
+               this.workerPrompts();
+            } else {
+                return false;
+            }
+        });
 }
 
-function workerPrompts() {
+StartPrompts.prototype.workerPrompts = function () {
     return inquirer
         .prompt([
         {
@@ -47,12 +69,15 @@ function workerPrompts() {
     // .then(mangerInfo => {
 
     // })
+    // .then(()=> {
+    //     return addTeamMember();
+    // })
     .then(()=> {
-        return addTeamMember();
+        this.addTeamMember();
     })
 }
 
-function addTeamMember() {
+StartPrompts.prototype.addTeamMember = function() {
     return inquirer 
             .prompt({
                 type:'list',
@@ -64,16 +89,16 @@ function addTeamMember() {
         .then(({addWorkers}) => {
             console.log(addWorkers);
             if(addWorkers === 'Engineer'){
-                return addEngineer();
+                this.addEngineer();
             } else if (addWorkers === 'Intern') {
-                return addIntern();
+                this.addIntern();
             } else {
                 console.log('FINISHED');
             }
         })
 }
 
-function addEngineer() {
+StartPrompts.prototype.addEngineer = function() {
 
     return inquirer
         .prompt([
@@ -106,11 +131,11 @@ function addEngineer() {
             // }
         ])
         .then(()=> {
-            return addTeamMember();
+            this.addTeamMember();
         })
 }
 
-function addIntern() {
+StartPrompts.prototype.addIntern = function() {
 
     return inquirer
         .prompt([
@@ -136,18 +161,18 @@ function addIntern() {
             },
         ])
         .then(()=> {
-            return addTeamMember();
+            this.addTeamMember();
         })
 }
 
-startPrompts()
-.then(answer => {
-    if (answer.confirmPrompts) {
-       return workerPrompts();
-    } else {
-        return false;
-    }
-})
+// StartPrompts()
+// .then(answer => {
+//     if (answer.confirmPrompts) {
+//        return workerPrompts();
+//     } else {
+//         return false;
+//     }
+// })
 // .then(workerAnswers => {
 //     console.log(workerAnswers);
 //     if(workerAnswers.addWorkers === 'Engineer'){
@@ -158,3 +183,5 @@ startPrompts()
 //         console.log('FINISHED');
 //     }
 // })
+
+new StartPrompts();
