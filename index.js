@@ -4,21 +4,6 @@ const inquirer = require('inquirer');
 function StartPrompts() {
     console.log("Welcome to the team profile generator! With this application you can enter your team member's names and information in order to create a team profile webpage.");
 
-    // return inquirer
-    //     .prompt({
-    //         type: 'confirm',
-    //         name: 'confirmPrompts',
-    //         message: 'Would you like to start creating your team profile?',
-    //         default: true
-    //     })
-        // .then(answer => {
-        //     if (answer.confirmPrompts) {
-        //        return workerPrompts();
-        //     } else {
-        //         return false;
-        //     }
-        // })
-
         inquirer
         .prompt({
             type: 'confirm',
@@ -58,20 +43,11 @@ StartPrompts.prototype.workerPrompts = function () {
             name: 'officeNumber',
             message: "What is your manager's office number?"
         }
-        // {
-        //     type:'list',
-        //     name:'addWorkers',
-        //     message:'If you would like to add a team member select from the list below. If not select finish building team to create your webpage.',
-        //     choices:['Engineer', 'Intern', 'Finish Building Team'],
-        //     default:'Finish Building Team'
-        // }
     ])
     // .then(mangerInfo => {
 
     // })
-    // .then(()=> {
-    //     return addTeamMember();
-    // })
+   
     .then(()=> {
         this.addTeamMember();
     })
@@ -122,13 +98,6 @@ StartPrompts.prototype.addEngineer = function() {
                 name: 'github',
                 message: "What is your engineer's GitHub username?"
             }
-            // {
-            //     type:'list',
-            //     name:'addWorkers',
-            //     message:'If you would like to add a team member select from the list below. If not select finish building team to create your webpage.',
-            //     choices:['Engineer', 'Intern', 'Finish Building Team'],
-            //     default:'Finish Building Team'
-            // }
         ])
         .then(()=> {
             this.addTeamMember();
@@ -156,32 +125,13 @@ StartPrompts.prototype.addIntern = function() {
             },
             {
                 type: 'text',
-                name: 'github',
-                message: "What is your intern's GitHub username?"
+                name: 'school',
+                message: "What school did your intern attend?"
             },
         ])
         .then(()=> {
             this.addTeamMember();
         })
 }
-
-// StartPrompts()
-// .then(answer => {
-//     if (answer.confirmPrompts) {
-//        return workerPrompts();
-//     } else {
-//         return false;
-//     }
-// })
-// .then(workerAnswers => {
-//     console.log(workerAnswers);
-//     if(workerAnswers.addWorkers === 'Engineer'){
-//         return addEngineer();
-//     } else if (workerAnswers.addWorkers === 'Intern') {
-//         return addIntern();
-//     } else {
-//         console.log('FINISHED');
-//     }
-// })
 
 new StartPrompts();
