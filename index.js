@@ -201,8 +201,6 @@ StartPrompts.prototype.addIntern = function() {
     console.log(team)
     team.forEach(getInfo);
 
-    //const teamInfoArray = [];
-
     function getInfo(value) {
 
         if (value.role === "Manager") {
@@ -220,7 +218,7 @@ StartPrompts.prototype.addIntern = function() {
             .then(manager => {
                 generateHTML(manager);
             });
-            console.log(manager);
+            //console.log(manager);
         } else if (value.role === "Engineer") {
             let name = value.name
             let id = value.id;
@@ -232,11 +230,11 @@ StartPrompts.prototype.addIntern = function() {
             console.log(email);
             console.log(role);
             console.log(github);
-            let engineer = createEngineer(name, role, id, email, github)
+            createEngineer(name, role, id, email, github)
             .then(engineer => {
                 generateHTML(engineer);
             });
-            console.log(engineer);
+            //console.log(engineer);
         } else if (value.role === "Intern") {
             let name = value.name
             let id = value.id;
@@ -248,24 +246,15 @@ StartPrompts.prototype.addIntern = function() {
             console.log(email);
             console.log(role);
             console.log(school);
-            let intern = createIntern(name, role, id, email, school)
+            createIntern(name, role, id, email, school)
             .then(intern => {
                 generateHTML(intern);
             });
-            console.log(intern);
+            //console.log(intern);
         }
-        
-            //teamInfoArray.push(name, id, email, role,)
     }
 }
 
 new StartPrompts()
-// .then(teamArray, () => {
-//     console.log(teamArray);
-    //return createHTML(teamArray);
-//})
-// .then(pageHTML => {
-//     return writeFile(pageHTML);
-// });
 
 module.exports = StartPrompts;
