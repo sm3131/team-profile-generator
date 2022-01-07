@@ -1,8 +1,13 @@
-const fs = require('fs');
+//const fs = require('fs');
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const createManager = require('./src/generateHTML');
+const createEngineer = require('./src/generateHTML');
+const createIntern = require('./src/generateHTML');
+const generateHTML = require('./src/generateHTML');
+const writeFile = require('./src/generateHTML');
 const teamArray = [];
 
 function StartPrompts() {
@@ -87,6 +92,7 @@ StartPrompts.prototype.addTeamMember = function() {
             } else if (addWorkers === 'Intern') {
                 this.addIntern();
             } else {
+                this.finishTeam(teamArray);
                 console.log('FINISHED');
             }
         })
@@ -190,4 +196,76 @@ StartPrompts.prototype.addIntern = function() {
         })
 }
 
-new StartPrompts();
+    StartPrompts.prototype.finishTeam = function(team) {
+
+    console.log(team)
+    team.forEach(getInfo);
+
+    //const teamInfoArray = [];
+
+    function getInfo(value) {
+
+        if (value.role === "Manager") {
+            let name = value.name
+            let id = value.id;
+            let email = value.email;
+            let role = value.role;
+            let officeNumber = value.officeNumber;
+            console.log(name);
+            console.log(id);
+            console.log(email);
+            console.log(role);
+            console.log(officeNumber);
+            createManager(name, role, id, email, officeNumber)
+            .then(manager => {
+                generateHTML(manager);
+            });
+            console.log(manager);
+        } else if (value.role === "Engineer") {
+            let name = value.name
+            let id = value.id;
+            let email = value.email;
+            let role = value.role;
+            let github = value.github;
+            console.log(name);
+            console.log(id);
+            console.log(email);
+            console.log(role);
+            console.log(github);
+            let engineer = createEngineer(name, role, id, email, github)
+            .then(engineer => {
+                generateHTML(engineer);
+            });
+            console.log(engineer);
+        } else if (value.role === "Intern") {
+            let name = value.name
+            let id = value.id;
+            let email = value.email;
+            let role = value.role;
+            let school = value.school;
+            console.log(name);
+            console.log(id);
+            console.log(email);
+            console.log(role);
+            console.log(school);
+            let intern = createIntern(name, role, id, email, school)
+            .then(intern => {
+                generateHTML(intern);
+            });
+            console.log(intern);
+        }
+        
+            //teamInfoArray.push(name, id, email, role,)
+    }
+}
+
+new StartPrompts()
+// .then(teamArray, () => {
+//     console.log(teamArray);
+    //return createHTML(teamArray);
+//})
+// .then(pageHTML => {
+//     return writeFile(pageHTML);
+// });
+
+module.exports = StartPrompts;
