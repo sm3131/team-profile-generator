@@ -1,5 +1,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const teamArray = [];
 
 function StartPrompts() {
@@ -32,7 +35,7 @@ StartPrompts.prototype.workerPrompts = function () {
         },
         {
             type: 'text',
-            name: 'ManagerName',
+            name: 'managerName',
             message: "What is the team manager's name?"
         },
         {
@@ -52,15 +55,20 @@ StartPrompts.prototype.workerPrompts = function () {
         }
     ])
     .then(managerInfo => {
-        teamArray.push(managerInfo);
+        let name = managerInfo.managerName;
+        let id = managerInfo.managerId;
+        let email = managerInfo.managerEmail;
+        let officeNumber = managerInfo.officeNumber;
+        let role = managerInfo.role;
+
+        console.log(name, id, email, officeNumber, role);
+
+        let manager = new Manager(name, id, email, officeNumber, role);
+        teamArray.push(manager);
         console.log(teamArray);
 
         this.addTeamMember();
     })
-   
-    // .then(()=> {
-    //     this.addTeamMember();
-    // })
 }
 
 StartPrompts.prototype.addTeamMember = function() {
@@ -117,15 +125,20 @@ StartPrompts.prototype.addEngineer = function() {
         ])
         
         .then(engineerInfo => {
-            teamArray.push(engineerInfo);
+            let name = engineerInfo.engineerName;
+            let id = engineerInfo.engineerId;
+            let email = engineerInfo.engineerEmail;
+            let github = engineerInfo.github;
+            let role = engineerInfo.role;
+
+            console.log(name, id, email, github, role);
+
+            let engineer = new Engineer(name, id, email, github, role);
+            teamArray.push(engineer);
             console.log(teamArray);
     
             this.addTeamMember();
         })
-
-        // .then(()=> {
-        //     this.addTeamMember();
-        // })
 }
 
 StartPrompts.prototype.addIntern = function() {
@@ -161,15 +174,20 @@ StartPrompts.prototype.addIntern = function() {
         ])
 
         .then(internInfo => {
-            teamArray.push(internInfo);
+            let name = internInfo.internName;
+            let id = internInfo.internId;
+            let email = internInfo.internEmail;
+            let school = internInfo.school;
+            let role = internInfo.role;
+    
+            console.log(name, id, email, school, role);
+
+            let intern = new Intern(name, id, email, school, role);
+            teamArray.push(intern);
             console.log(teamArray);
     
             this.addTeamMember();
         })
-
-        // .then(()=> {
-        //     this.addTeamMember();
-        // })
 }
 
 new StartPrompts();
