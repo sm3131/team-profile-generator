@@ -1,5 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const teamArray = [];
 
 function StartPrompts() {
     console.log("Welcome to the team profile generator! With this application you can enter your team member's names and information in order to create a team profile webpage.");
@@ -24,33 +25,42 @@ StartPrompts.prototype.workerPrompts = function () {
     return inquirer
         .prompt([
         {
+            type:'list',
+            name:'role',
+            message:"Please confirm the worker's role by hitting enter",
+            choices:['Manager']
+        },
+        {
             type: 'text',
-            name: 'name',
-            message: "What is your team manager's name?"
+            name: 'ManagerName',
+            message: "What is the team manager's name?"
         },
         {
             type: 'text',
             name: 'managerId',
-            message: "What is your manager's employee ID number?"
+            message: "What is the manager's employee ID number?"
         },
         {
             type: 'text',
             name: 'managerEmail',
-            message: "What is your manager's email address?"
+            message: "What is the manager's email address?"
         },
         {
             type: 'text',
             name: 'officeNumber',
-            message: "What is your manager's office number?"
+            message: "What is the manager's office number?"
         }
     ])
-    // .then(mangerInfo => {
+    .then(managerInfo => {
+        teamArray.push(managerInfo);
+        console.log(teamArray);
 
-    // })
-   
-    .then(()=> {
         this.addTeamMember();
     })
+   
+    // .then(()=> {
+    //     this.addTeamMember();
+    // })
 }
 
 StartPrompts.prototype.addTeamMember = function() {
@@ -79,29 +89,43 @@ StartPrompts.prototype.addEngineer = function() {
     return inquirer
         .prompt([
             {
+                type:'list',
+                name:'role',
+                message:"Please confirm the worker's role by hitting enter",
+                choices:['Engineer']
+            },
+            {
                 type:'text',
                 name:'engineerName',
-                message:"What is your engineer's name?"
+                message:"What is the engineer's name?"
             },
             {
                 type: 'text',
                 name: 'engineerId',
-                message: "What is your engineer's employee ID number?"
+                message: "What is the engineer's employee ID number?"
             },
             {
                 type: 'text',
                 name: 'engineerEmail',
-                message: "What is your engineer's email address?"
+                message: "What is the engineer's email address?"
             },
             {
                 type: 'text',
                 name: 'github',
-                message: "What is your engineer's GitHub username?"
+                message: "What is the engineer's GitHub username?"
             }
         ])
-        .then(()=> {
+        
+        .then(engineerInfo => {
+            teamArray.push(engineerInfo);
+            console.log(teamArray);
+    
             this.addTeamMember();
         })
+
+        // .then(()=> {
+        //     this.addTeamMember();
+        // })
 }
 
 StartPrompts.prototype.addIntern = function() {
@@ -109,29 +133,43 @@ StartPrompts.prototype.addIntern = function() {
     return inquirer
         .prompt([
             {
+                type:'list',
+                name:'role',
+                message:"Please confirm the worker's role by hitting enter",
+                choices:['Intern']
+            },
+            {
                 type:'text',
                 name:'internName',
-                message:"What is your intern's name?"
+                message:"What is the intern's name?"
             },
             {
                 type: 'text',
                 name: 'internId',
-                message: "What is your intern's employee ID number?"
+                message: "What is the intern's employee ID number?"
             },
             {
                 type: 'text',
                 name: 'internEmail',
-                message: "What is your intern's email address?"
+                message: "What is the intern's email address?"
             },
             {
                 type: 'text',
                 name: 'school',
-                message: "What school did your intern attend?"
+                message: "What school did the intern attend?"
             },
         ])
-        .then(()=> {
+
+        .then(internInfo => {
+            teamArray.push(internInfo);
+            console.log(teamArray);
+    
             this.addTeamMember();
         })
+
+        // .then(()=> {
+        //     this.addTeamMember();
+        // })
 }
 
 new StartPrompts();
