@@ -1,4 +1,4 @@
-//const fs = require('fs');
+const fs = require('fs');
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -89,7 +89,7 @@ StartPrompts.prototype.addTeamMember = function() {
                 this.addIntern();
             } else {
                 this.finishTeam(teamArray);
-                console.log('FINISHED');
+                console.log('Team Profile WebPage Created!');
             }
         })
 }
@@ -201,66 +201,36 @@ StartPrompts.prototype.addIntern = function() {
     function getInfo(value) {
 
         if (value.role === "Manager") {
-            // let name = value.name
-            // let id = value.id;
-            // let email = value.email;
-            // let role = value.role;
-            // let officeNumber = value.officeNumber;
-            // console.log(name);
-            // console.log(id);
-            // console.log(email);
-            // console.log(role);
-            // console.log(officeNumber);
             let manager = createManager(value.name, value.role, value.id, value.email, value.officeNumber)
             console.log(manager);
             workerArray.push(manager);
             
         } else if (value.role === "Engineer") {
-            // let name = value.name
-            // let id = value.id;
-            // let email = value.email;
-            // let role = value.role;
-            // let github = value.github;
-            // console.log(name);
-            // console.log(id);
-            // console.log(email);
-            // console.log(role);
-            // console.log(github);
             let engineer = createEngineer(value.name, value.role, value.id, value.email, value.github)
             console.log(engineer);
             workerArray.push(engineer);
         
         } else if (value.role === "Intern") {
-            // let name = value.name
-            // let id = value.id;
-            // let email = value.email;
-            // let role = value.role;
-            // let school = value.school;
-            // console.log(name);
-            // console.log(id);
-            // console.log(email);
-            // console.log(role);
-            // console.log(school);
             let intern = createIntern(value.name, value.role, value.id, value.email, value.school)
             console.log(intern);
             workerArray.push(intern);
         }
         let finalHTML = generateHTML(workerArray);
         console.log(finalHTML);
-        writeFile(finalHTML);
+        writeFile(finalHTML)
+        .catch(err => {
+            console.log(err);
+        })
     }
 }
 
 const writeFile = finalHTML => {
     return new Promise((resolve, reject) => {
         fs.writeFile('./dist/new_index.html', finalHTML, err => {
-        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
         if (err) {
           reject(err);
-          // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
           return;
         }
-        // if everything went well, resolve the Promise and send the successful data to the `.then()` method
         resolve({
           ok: true,
           message: 'Team Profile WebPage Created!'
@@ -270,5 +240,3 @@ const writeFile = finalHTML => {
   };
 
 new StartPrompts()
-
-//module.exports = StartPrompts;
