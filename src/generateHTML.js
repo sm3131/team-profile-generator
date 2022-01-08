@@ -1,23 +1,23 @@
-const StartPrompts = require('../index.js');
-const fs = require('fs');
+// const StartPrompts = require('../index.js');
+// const fs = require('fs');
 
-const writeFile = fileContent => {
-    return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/new_index.html', fileContent, err => {
-        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
-        if (err) {
-          reject(err);
-          // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
-          return;
-        }
-        // if everything went well, resolve the Promise and send the successful data to the `.then()` method
-        resolve({
-          ok: true,
-          message: 'File created!'
-        });
-      });
-    });
-  };
+// const writeFile = fileContent => {
+//     return new Promise((resolve, reject) => {
+//         fs.writeFile('./dist/new_index.html', fileContent, err => {
+//         // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+//         if (err) {
+//           reject(err);
+//           // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
+//           return;
+//         }
+//         // if everything went well, resolve the Promise and send the successful data to the `.then()` method
+//         resolve({
+//           ok: true,
+//           message: 'File created!'
+//         });
+//       });
+//     });
+//   };
 
 const createManager = function (name, role, id, email, officeNumber) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
@@ -61,8 +61,15 @@ const createIntern = function (name, role, id, email, school) {
 </div>`
 }
 
-const generateHTML = function () {
-    `<!DOCTYPE html>
+const generateHTML = function (workerArray) {
+    let body = ``
+    workerArray.forEach(addBodyText);
+
+    function addBodyText(item) {
+        body += item;
+    }
+
+    return`<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -79,11 +86,11 @@ const generateHTML = function () {
     
         <div class="container">
             <div class="row gy-5">
-                ${createManager()}
+                ${body}
             </div>
         </div>
     </body>
     </html>`
 }
 module.exports = { createManager, createEngineer, createIntern, generateHTML };
-module.exports = writeFile;
+//module.exports = writeFile;
