@@ -308,20 +308,39 @@ StartPrompts.prototype.addIntern = function () {
         ])
 
         .then(internInfo => {
+            // let lowerName = internInfo.internName;
+            // let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
+            // let id = internInfo.internId;
+            // let email = internInfo.internEmail;
+            // let school = internInfo.school;
+            // let role = internInfo.role;
+
+            // console.log(name, id, email, school, role);
+
+            // let intern = new Intern(name, id, email, school, role);
+            // console.log(intern);
+            // intern.getName();
+            // teamArray.push(intern);
+            // console.log(teamArray);
+
             let lowerName = internInfo.internName;
             let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
-            let id = internInfo.internId;
-            let email = internInfo.internEmail;
-            let school = internInfo.school;
-            let role = internInfo.role;
+            // let id = internInfo.internId;
+            // let email = internInfo.internEmail;
+            // let school = internInfo.school;
+            // let role = internInfo.role;
 
-            console.log(name, id, email, school, role);
+            //console.log(name, id, email, school, role);
 
-            let intern = new Intern(name, id, email, school, role);
+            let intern = new Intern(name, internInfo.internId, internInfo.internEmail, internInfo.school, internInfo.role);
             console.log(intern);
-            intern.getName();
-            teamArray.push(intern);
-            console.log(teamArray);
+            // intern.getName();
+            // teamArray.push(intern);
+            // console.log(teamArray);
+            let internHTML = createIntern(intern);
+            console.log(internHTML);
+            workerArray.push(internHTML);
+            console.log(workerArray);
 
             this.addTeamMember();
         })

@@ -54,16 +54,30 @@ const createEngineer = function (engineer) {
 </div>`
 }
 
-const createIntern = function (name, role, id, email, school) {
+// const createIntern = function (name, role, id, email, school) {
+//     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
+//     <div class="card-header bg-info">
+//         <h2>${name}</h2>
+//         <h3><span class="fas fa-user-graduate"></span> ${role}</h3>
+//     </div>
+//     <ul class="list-group">
+//         <li class="list-group-item">ID: ${id}</li>
+//         <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+//         <li class="list-group-item">School: ${school}</li>
+//     </ul>
+// </div>`
+// }
+
+const createIntern = function (intern) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
     <div class="card-header bg-info">
-        <h2>${name}</h2>
-        <h3><span class="fas fa-user-graduate"></span> ${role}</h3>
+        <h2>${intern.getName()}</h2>
+        <h3><span class="fas fa-user-graduate"></span> ${intern.getRole()}</h3>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">ID: ${id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-        <li class="list-group-item">School: ${school}</li>
+        <li class="list-group-item">ID: ${intern.getId()}</li>
+        <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+        <li class="list-group-item">School: ${intern.getSchool()}</li>
     </ul>
 </div>`
 }
