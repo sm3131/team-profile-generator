@@ -26,16 +26,30 @@ const createManager = function (manager) {
 </div>`
 }
 
-const createEngineer = function (name, role, id, email, github) {
+// const createEngineer = function (name, role, id, email, github) {
+//     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
+//     <div class="card-header bg-info">
+//         <h2>${name}</h2>
+//         <h3><span class="fas fa-glasses"></span> ${role}</h3>
+//     </div>
+//     <ul class="list-group">
+//         <li class="list-group-item">ID: ${id}</li>
+//         <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+//         <li class="list-group-item">GitHub: <a href="https://github.com/${github}" target="_blank">${github}</a></li>
+//     </ul>
+// </div>`
+// }
+
+const createEngineer = function (engineer) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
     <div class="card-header bg-info">
-        <h2>${name}</h2>
-        <h3><span class="fas fa-glasses"></span> ${role}</h3>
+        <h2>${engineer.getName()}</h2>
+        <h3><span class="fas fa-glasses"></span> ${engineer.getRole()}</h3>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">ID: ${id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-        <li class="list-group-item">GitHub: <a href="https://github.com/${github}" target="_blank">${github}</a></li>
+        <li class="list-group-item">ID: ${engineer.getId()}</li>
+        <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></li>
     </ul>
 </div>`
 }

@@ -206,20 +206,38 @@ StartPrompts.prototype.addEngineer = function () {
         ])
 
         .then(engineerInfo => {
+            // let lowerName = engineerInfo.engineerName;
+            // let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
+            // let id = engineerInfo.engineerId;
+            // let email = engineerInfo.engineerEmail;
+            // let github = engineerInfo.github;
+            // let role = engineerInfo.role;
+
+            // console.log(name, id, email, github, role);
+
+            // let engineer = new Engineer(name, id, email, github, role);
+            // console.log(engineer);
+            // engineer.getName();
+            // teamArray.push(engineer);
+            // console.log(teamArray);
+
             let lowerName = engineerInfo.engineerName;
             let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
-            let id = engineerInfo.engineerId;
-            let email = engineerInfo.engineerEmail;
-            let github = engineerInfo.github;
-            let role = engineerInfo.role;
+            // let id = engineerInfo.engineerId;
+            // let email = engineerInfo.engineerEmail;
+            // let github = engineerInfo.github;
+            // let role = engineerInfo.role;
 
-            console.log(name, id, email, github, role);
+            // console.log(name, id, email, github, role);
 
-            let engineer = new Engineer(name, id, email, github, role);
+            let engineer = new Engineer(name, engineerInfo.engineerId, engineerInfo.engineerEmail, engineerInfo.github, engineerInfo.role);
             console.log(engineer);
-            engineer.getName();
-            teamArray.push(engineer);
-            console.log(teamArray);
+            // engineer.getName();
+
+            let engineerHTML = createEngineer(engineer);
+            console.log(engineerHTML);
+            workerArray.push(engineerHTML);
+            console.log(workerArray);
 
             this.addTeamMember();
         })
