@@ -1,13 +1,27 @@
-const createManager = function (name, role, id, email, officeNumber) {
+// const createManager = function (name, role, id, email, officeNumber) {
+//     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
+//     <div class="card-header bg-info">
+//         <h2>${name}</h2>
+//         <h3><span class="fas fa-mug-hot"></span> ${role}</h3>
+//     </div>
+//     <ul class="list-group">
+//         <li class="list-group-item">ID: ${id}</li>
+//         <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+//         <li class="list-group-item">Office Number: ${officeNumber}</li>
+//     </ul>
+// </div>`
+// }
+
+const createManager = function (manager) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
     <div class="card-header bg-info">
-        <h2>${name}</h2>
-        <h3><span class="fas fa-mug-hot"></span> ${role}</h3>
+        <h2>${manager.getName()}</h2>
+        <h3><span class="fas fa-mug-hot"></span> ${manager.getRole()}</h3>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">ID: ${id}</li>
-        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-        <li class="list-group-item">Office Number: ${officeNumber}</li>
+        <li class="list-group-item">ID: ${manager.getId()}</li>
+        <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+        <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
     </ul>
 </div>`
 }

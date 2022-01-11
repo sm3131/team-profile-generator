@@ -4,7 +4,8 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const { createManager, createEngineer, createIntern, generateHTML } = require('./src/generateHTML');
-const teamArray = [];
+//const teamArray = [];
+const workerArray = [];
 
 function StartPrompts() {
     console.log("Welcome to the team profile generator! With this application you can enter your team member's names and information in order to create a team profile webpage.");
@@ -87,18 +88,32 @@ StartPrompts.prototype.workerPrompts = function () {
             }
         ])
         .then(managerInfo => {
+            // let lowerName = managerInfo.managerName;
+            // let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
+            // let id = managerInfo.managerId;
+            // let email = managerInfo.managerEmail;
+            // let officeNumber = managerInfo.officeNumber;
+            // let role = managerInfo.role;
+
+            // console.log(name, id, email, officeNumber, role);
+
+            // let manager = new Manager(name, id, email, officeNumber, role);
+            // console.log(manager);
+            // let nameName = manager.getName();
+            // console.log(nameName);
+            // teamArray.push(manager);
+            // console.log(teamArray);
+
             let lowerName = managerInfo.managerName;
             let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
-            let id = managerInfo.managerId;
-            let email = managerInfo.managerEmail;
-            let officeNumber = managerInfo.officeNumber;
-            let role = managerInfo.role;
 
-            console.log(name, id, email, officeNumber, role);
+            let manager = new Manager(name, managerInfo.managerId, managerInfo.managerEmail, managerInfo.officeNumber, managerInfo.role);
+            console.log(manager);
 
-            let manager = new Manager(name, id, email, officeNumber, role);
-            teamArray.push(manager);
-            console.log(teamArray);
+            let managerHTML = createManager(manager);
+            console.log(managerHTML);
+            workerArray.push(managerHTML);
+            console.log(workerArray);
 
             this.addTeamMember();
         })
@@ -120,7 +135,7 @@ StartPrompts.prototype.addTeamMember = function () {
             } else if (addWorkers === 'Intern') {
                 this.addIntern();
             } else {
-                this.finishTeam(teamArray);
+                this.finishTeam(workerArray);
                 console.log('Team Profile WebPage Created!');
             }
         })
@@ -201,6 +216,8 @@ StartPrompts.prototype.addEngineer = function () {
             console.log(name, id, email, github, role);
 
             let engineer = new Engineer(name, id, email, github, role);
+            console.log(engineer);
+            engineer.getName();
             teamArray.push(engineer);
             console.log(teamArray);
 
@@ -283,44 +300,46 @@ StartPrompts.prototype.addIntern = function () {
             console.log(name, id, email, school, role);
 
             let intern = new Intern(name, id, email, school, role);
+            console.log(intern);
+            intern.getName();
             teamArray.push(intern);
             console.log(teamArray);
 
             this.addTeamMember();
         })
 }
-const workerArray = [];
+// const workerArray = [];
 
-StartPrompts.prototype.finishTeam = function (team) {
+StartPrompts.prototype.finishTeam = function (workTeam) {
 
-    console.log(team)
+    // console.log(team)
 
-    team.forEach(getInfo);
+    // team.forEach(getInfo);
 
-    function getInfo(value) {
+    // function getInfo(value) {
 
-        if (value.role === "Manager") {
-            let manager = createManager(value.name, value.role, value.id, value.email, value.officeNumber)
-            console.log(manager);
-            workerArray.push(manager);
+    //     if (value.role === "Manager") {
+    //         let manager = createManager(value.name, value.role, value.id, value.email, value.officeNumber)
+    //         console.log(manager);
+    //         workerArray.push(manager);
 
-        } else if (value.role === "Engineer") {
-            let engineer = createEngineer(value.name, value.role, value.id, value.email, value.github)
-            console.log(engineer);
-            workerArray.push(engineer);
+    //     } else if (value.role === "Engineer") {
+    //         let engineer = createEngineer(value.name, value.role, value.id, value.email, value.github)
+    //         console.log(engineer);
+    //         workerArray.push(engineer);
 
-        } else if (value.role === "Intern") {
-            let intern = createIntern(value.name, value.role, value.id, value.email, value.school)
-            console.log(intern);
-            workerArray.push(intern);
-        }
-        let finalHTML = generateHTML(workerArray);
+    //     } else if (value.role === "Intern") {
+    //         let intern = createIntern(value.name, value.role, value.id, value.email, value.school)
+    //         console.log(intern);
+    //         workerArray.push(intern);
+    //     }
+        let finalHTML = generateHTML(workTeam);
         writeFile(finalHTML)
             .catch(err => {
                 console.log(err);
             })
     }
-}
+//}
 
 const writeFile = finalHTML => {
     return new Promise((resolve, reject) => {
