@@ -2,11 +2,11 @@ const createManager = function (name, role, id, email, officeNumber) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
     <div class="card-header bg-info">
         <h2>${name}</h2>
-        <h3><span></span>${role}</h3>
+        <h3><span class="fas fa-mug-hot"></span> ${role}</h3>
     </div>
     <ul class="list-group">
         <li class="list-group-item">${id}</li>
-        <li class="list-group-item">${email}</li>
+        <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
         <li class="list-group-item">${officeNumber}</li>
     </ul>
 </div>`
@@ -16,12 +16,12 @@ const createEngineer = function (name, role, id, email, github) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
     <div class="card-header bg-info">
         <h2>${name}</h2>
-        <h3><span></span>${role}</h3>
+        <h3><span class="fas fa-glasses"></span> ${role}</h3>
     </div>
     <ul class="list-group">
         <li class="list-group-item">${id}</li>
-        <li class="list-group-item">${email}</li>
-        <li class="list-group-item">${github}</li>
+        <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
+        <li class="list-group-item"><a href="https://github.com/${github}" target="_blank">${github}</a></li>
     </ul>
 </div>`
 }
@@ -30,11 +30,11 @@ const createIntern = function (name, role, id, email, school) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
     <div class="card-header bg-info">
         <h2>${name}</h2>
-        <h3><span></span>${role}</h3>
+        <h3><span class="fas fa-user-graduate"></span> ${role}</h3>
     </div>
     <ul class="list-group">
         <li class="list-group-item">${id}</li>
-        <li class="list-group-item">${email}</li>
+        <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
         <li class="list-group-item">${school}</li>
     </ul>
 </div>`

@@ -87,7 +87,8 @@ StartPrompts.prototype.workerPrompts = function () {
             }
         ])
         .then(managerInfo => {
-            let name = managerInfo.managerName;
+            let lowerName = managerInfo.managerName;
+            let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
             let id = managerInfo.managerId;
             let email = managerInfo.managerEmail;
             let officeNumber = managerInfo.officeNumber;
@@ -190,7 +191,8 @@ StartPrompts.prototype.addEngineer = function () {
         ])
 
         .then(engineerInfo => {
-            let name = engineerInfo.engineerName;
+            let lowerName = engineerInfo.engineerName;
+            let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
             let id = engineerInfo.engineerId;
             let email = engineerInfo.engineerEmail;
             let github = engineerInfo.github;
@@ -271,7 +273,8 @@ StartPrompts.prototype.addIntern = function () {
         ])
 
         .then(internInfo => {
-            let name = internInfo.internName;
+            let lowerName = internInfo.internName;
+            let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
             let id = internInfo.internId;
             let email = internInfo.internEmail;
             let school = internInfo.school;
