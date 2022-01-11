@@ -1,17 +1,3 @@
-// const createManager = function (name, role, id, email, officeNumber) {
-//     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
-//     <div class="card-header bg-info">
-//         <h2>${name}</h2>
-//         <h3><span class="fas fa-mug-hot"></span> ${role}</h3>
-//     </div>
-//     <ul class="list-group">
-//         <li class="list-group-item">ID: ${id}</li>
-//         <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-//         <li class="list-group-item">Office Number: ${officeNumber}</li>
-//     </ul>
-// </div>`
-// }
-
 const createManager = function (manager) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
     <div class="card-header bg-info">
@@ -26,20 +12,6 @@ const createManager = function (manager) {
 </div>`
 }
 
-// const createEngineer = function (name, role, id, email, github) {
-//     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
-//     <div class="card-header bg-info">
-//         <h2>${name}</h2>
-//         <h3><span class="fas fa-glasses"></span> ${role}</h3>
-//     </div>
-//     <ul class="list-group">
-//         <li class="list-group-item">ID: ${id}</li>
-//         <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-//         <li class="list-group-item">GitHub: <a href="https://github.com/${github}" target="_blank">${github}</a></li>
-//     </ul>
-// </div>`
-// }
-
 const createEngineer = function (engineer) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
     <div class="card-header bg-info">
@@ -53,20 +25,6 @@ const createEngineer = function (engineer) {
     </ul>
 </div>`
 }
-
-// const createIntern = function (name, role, id, email, school) {
-//     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">
-//     <div class="card-header bg-info">
-//         <h2>${name}</h2>
-//         <h3><span class="fas fa-user-graduate"></span> ${role}</h3>
-//     </div>
-//     <ul class="list-group">
-//         <li class="list-group-item">ID: ${id}</li>
-//         <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-//         <li class="list-group-item">School: ${school}</li>
-//     </ul>
-// </div>`
-// }
 
 const createIntern = function (intern) {
     return `<div class="card border-0 col-sm-12 col-md-6 col-lg-4">

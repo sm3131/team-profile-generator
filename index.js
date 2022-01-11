@@ -4,7 +4,6 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const { createManager, createEngineer, createIntern, generateHTML } = require('./src/generateHTML');
-//const teamArray = [];
 const workerArray = [];
 
 function StartPrompts() {
@@ -88,32 +87,13 @@ StartPrompts.prototype.workerPrompts = function () {
             }
         ])
         .then(managerInfo => {
-            // let lowerName = managerInfo.managerName;
-            // let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
-            // let id = managerInfo.managerId;
-            // let email = managerInfo.managerEmail;
-            // let officeNumber = managerInfo.officeNumber;
-            // let role = managerInfo.role;
-
-            // console.log(name, id, email, officeNumber, role);
-
-            // let manager = new Manager(name, id, email, officeNumber, role);
-            // console.log(manager);
-            // let nameName = manager.getName();
-            // console.log(nameName);
-            // teamArray.push(manager);
-            // console.log(teamArray);
-
             let lowerName = managerInfo.managerName;
             let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
 
             let manager = new Manager(name, managerInfo.managerId, managerInfo.managerEmail, managerInfo.officeNumber, managerInfo.role);
-            console.log(manager);
 
             let managerHTML = createManager(manager);
-            console.log(managerHTML);
             workerArray.push(managerHTML);
-            console.log(workerArray);
 
             this.addTeamMember();
         })
@@ -206,38 +186,13 @@ StartPrompts.prototype.addEngineer = function () {
         ])
 
         .then(engineerInfo => {
-            // let lowerName = engineerInfo.engineerName;
-            // let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
-            // let id = engineerInfo.engineerId;
-            // let email = engineerInfo.engineerEmail;
-            // let github = engineerInfo.github;
-            // let role = engineerInfo.role;
-
-            // console.log(name, id, email, github, role);
-
-            // let engineer = new Engineer(name, id, email, github, role);
-            // console.log(engineer);
-            // engineer.getName();
-            // teamArray.push(engineer);
-            // console.log(teamArray);
-
             let lowerName = engineerInfo.engineerName;
             let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
-            // let id = engineerInfo.engineerId;
-            // let email = engineerInfo.engineerEmail;
-            // let github = engineerInfo.github;
-            // let role = engineerInfo.role;
-
-            // console.log(name, id, email, github, role);
 
             let engineer = new Engineer(name, engineerInfo.engineerId, engineerInfo.engineerEmail, engineerInfo.github, engineerInfo.role);
-            console.log(engineer);
-            // engineer.getName();
 
             let engineerHTML = createEngineer(engineer);
-            console.log(engineerHTML);
             workerArray.push(engineerHTML);
-            console.log(workerArray);
 
             this.addTeamMember();
         })
@@ -308,75 +263,26 @@ StartPrompts.prototype.addIntern = function () {
         ])
 
         .then(internInfo => {
-            // let lowerName = internInfo.internName;
-            // let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
-            // let id = internInfo.internId;
-            // let email = internInfo.internEmail;
-            // let school = internInfo.school;
-            // let role = internInfo.role;
-
-            // console.log(name, id, email, school, role);
-
-            // let intern = new Intern(name, id, email, school, role);
-            // console.log(intern);
-            // intern.getName();
-            // teamArray.push(intern);
-            // console.log(teamArray);
-
             let lowerName = internInfo.internName;
             let name = lowerName.charAt(0).toUpperCase() + lowerName.slice(1);
-            // let id = internInfo.internId;
-            // let email = internInfo.internEmail;
-            // let school = internInfo.school;
-            // let role = internInfo.role;
-
-            //console.log(name, id, email, school, role);
 
             let intern = new Intern(name, internInfo.internId, internInfo.internEmail, internInfo.school, internInfo.role);
-            console.log(intern);
-            // intern.getName();
-            // teamArray.push(intern);
-            // console.log(teamArray);
+
             let internHTML = createIntern(intern);
-            console.log(internHTML);
             workerArray.push(internHTML);
-            console.log(workerArray);
 
             this.addTeamMember();
         })
 }
-// const workerArray = [];
 
 StartPrompts.prototype.finishTeam = function (workTeam) {
 
-    // console.log(team)
-
-    // team.forEach(getInfo);
-
-    // function getInfo(value) {
-
-    //     if (value.role === "Manager") {
-    //         let manager = createManager(value.name, value.role, value.id, value.email, value.officeNumber)
-    //         console.log(manager);
-    //         workerArray.push(manager);
-
-    //     } else if (value.role === "Engineer") {
-    //         let engineer = createEngineer(value.name, value.role, value.id, value.email, value.github)
-    //         console.log(engineer);
-    //         workerArray.push(engineer);
-
-    //     } else if (value.role === "Intern") {
-    //         let intern = createIntern(value.name, value.role, value.id, value.email, value.school)
-    //         console.log(intern);
-    //         workerArray.push(intern);
-    //     }
-        let finalHTML = generateHTML(workTeam);
-        writeFile(finalHTML)
-            .catch(err => {
-                console.log(err);
-            })
-    }
-//}
+    let finalHTML = generateHTML(workTeam);
+    writeFile(finalHTML)
+        .catch(err => {
+            console.log(err);
+        })
+}
 
 const writeFile = finalHTML => {
     return new Promise((resolve, reject) => {
