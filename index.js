@@ -315,7 +315,6 @@ StartPrompts.prototype.finishTeam = function (team) {
             workerArray.push(intern);
         }
         let finalHTML = generateHTML(workerArray);
-        console.log(finalHTML);
         writeFile(finalHTML)
             .catch(err => {
                 console.log(err);

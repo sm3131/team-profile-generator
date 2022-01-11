@@ -5,9 +5,9 @@ const createManager = function (name, role, id, email, officeNumber) {
         <h3><span class="fas fa-mug-hot"></span> ${role}</h3>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">${id}</li>
-        <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
-        <li class="list-group-item">${officeNumber}</li>
+        <li class="list-group-item">ID: ${id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+        <li class="list-group-item">Office Number: ${officeNumber}</li>
     </ul>
 </div>`
 }
@@ -19,9 +19,9 @@ const createEngineer = function (name, role, id, email, github) {
         <h3><span class="fas fa-glasses"></span> ${role}</h3>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">${id}</li>
-        <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
-        <li class="list-group-item"><a href="https://github.com/${github}" target="_blank">${github}</a></li>
+        <li class="list-group-item">ID: ${id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+        <li class="list-group-item">GitHub: <a href="https://github.com/${github}" target="_blank">${github}</a></li>
     </ul>
 </div>`
 }
@@ -33,9 +33,9 @@ const createIntern = function (name, role, id, email, school) {
         <h3><span class="fas fa-user-graduate"></span> ${role}</h3>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">${id}</li>
-        <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
-        <li class="list-group-item">${school}</li>
+        <li class="list-group-item">ID: ${id}</li>
+        <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+        <li class="list-group-item">School: ${school}</li>
     </ul>
 </div>`
 }
@@ -56,6 +56,7 @@ const generateHTML = function (workerArray) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Profile</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link href="../dist/style.css" rel="stylesheet">
     </head>
     <body>
