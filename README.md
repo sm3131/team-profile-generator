@@ -4,6 +4,8 @@
 
 ## Description
 
+The team profile generator application was designed for users to create a webpage containing their work team roster by simply filling out user prompts. This application is run in the node.js environment, and it contains prompts asking for information about each team member. The team profile generator allows the user to create individual team member profiles for various team roles. As a user you can create profiles for the manager, engineers, and interns. If you are in need of any easy to use application that does all of the hard work of generating a team profile webpage, then the team profile generator is the application for you.  
+
 ## Table of Contents
   * [Built With](#built-with)
   * [Code Access](#code-access)
@@ -55,12 +57,21 @@ To use the team profile generator application complete the following steps:
 3. To begin running the application in the command line, type *node index.js* and this will start the program.
 4. If the program is running properly you should be confronted with some initial intro text and the first user prompt asking if you would like to start creating your team profile.
 5. The application will then ask for you to start by entering the team manager's information (i.e. confirm role, name, id, email, office number) 
-
-6. After completing the manager prompts the app will ask if you would like to add another team member (i.e. engineer or intern), or if you would like to finish building your team
+6. After completing the manager prompts, the app will ask if you would like to add another team member (i.e. engineer or intern), or if you would like to finish building your team
 7. If you select engineer or intern, you will be confronted with more user prompts asking about that team member's information (i.e. confirm role, name, id, email, github, school), then you will again be asked if you would like to add another team member or finish building the team profile
 8. If you select finish building team then this will collect all of your user input and create the appropriate html and css to generate your team profile webpage. You should see a message that reads, "Team Profile WebPage Created!", after seeing this message you can return to your code editor and you will see a new file has been created titled, "new_index.html". If you open this file in your browser you will see the finalized team profile that has been generated.
 
 **IMPORTANT NOTE:** Each time you run the program and fill out the user prompts for your team members, you will overwrite the existing new_index.html file if one currently exists. Filling out the user prompts multiple times will not create multiple new_index.html files instead it will overwrite the existing new_index.html file. It is recommended that you copy and save the new_index.html file you created before generating a new one, that way you will not lose your current team profile webpage. 
+
+## Tests
+
+Several tests were created for this application in order to ensure the worker classes were created properly. The tests ensure that each worker property and method function properly and return the intended information. If you would like to run the test suites for this application, follow these steps:
+1. Double check your package.json file to ensure the Jest package has been installed as a dev dependency
+2. Also check the json file to see that Jest is listed as the test value in the scripts object
+3. If Jest is not installed run *npm install*
+4. Once you have installed Jest, if you would like to see what the tests entail you can view each test in the __tests__ folder, each file is named after the class file it is testing
+5. Then when you are ready to run your tests, visit the command line again and make sure you are still in this application's directory
+6. To run the tests enter the command *npm test*, and you should see that all test suites and tests have passed for the application
 
 ## License
 
@@ -97,18 +108,15 @@ For all other questions or inquires please feel free to contact me via email at 
 All of the code and tests for this project were written by myself, Sammi Moore. I wrote the tests for each of the classes used in this application, I wrote the code that is run in the node.js environment, and I wrote the code required to generate the html and css for the finalized team profile webpage. 
 
 The resources that I used for this project are as follows:
-- Icons for each of the employee cards were from Font Awesome ()
-- Bootstrap styling for the webpage design and format was created using ()
+- Icons for each of the employee cards were from Font Awesome (Font Awesome by Dave Gandy - http://fontawesome.io)
+- Bootstrap styling for the webpage design and format was created using (https://getbootstrap.com/docs/)
 - The inquirer package from npm in this node.js application in order to generate user prompt questions (https://www.npmjs.com/package/inquirer)
-- The Jest package from npm to run tests for my code in node.js ()
+- The Jest package from npm to run tests for my code in node.js (https://www.npmjs.com/package/jest)
 - https://opensource.org/licenses/ (To borrow the license section text describing the terms of each of the licenses included in the readme generator)
 - https://shields.io/ (To generate the link to create the license badge)
 
-
-For the license badges and license section of the readme generator, I used the following resources:
+For the license badges and license section of the readme, I used the following resources:
 - https://choosealicense.com/ (To help with picking which licenses to include)
 - https://shields.io/ (To generate the link to create the license badge)
 - https://wisehackermonkey.github.io/badge-demo/ (To help with coloring the license badges and grabbing the license links)
 - https://opensource.org/licenses/ (To borrow the license section text describing the terms of each of the licenses included in the readme generator)
-
-
