@@ -4,7 +4,7 @@
 
 ## Description
 
-The team profile generator application was designed for users to create a webpage containing their work team roster by simply filling out user prompts. This application is run in the node.js environment, and it contains prompts asking for information about each team member. The team profile generator allows the user to create individual team member profiles for various team roles. As a user you can create profiles for the manager, engineers, and interns. If you are in need of any easy to use application that does all of the hard work of generating a team profile webpage, then the team profile generator is the application for you.  
+The team profile generator application was designed for users to create a webpage containing their work team roster by simply filling out user prompts. This application is run in the node.js environment, and it contains prompts asking for information about each team member. The team profile generator allows the user to create individual team member profiles for various team roles. As a user you can create profiles for the manager, engineers, and interns. If you are in need of an easy to use application that does all of the hard work of generating a team profile webpage, then the team profile generator is the application for you.  
 
 ## Table of Contents
   * [Built With](#built-with)
@@ -12,6 +12,7 @@ The team profile generator application was designed for users to create a webpag
   * [Preview](#preview)
   * [Installation](#installation)
   * [Usage](#usage)
+  * [Tests](#tests)
   * [License](#license)
   * [Questions](#questions)
   * [Credits](#credits)
@@ -52,7 +53,7 @@ To install the Team Profile Generator application complete the following steps:
 
 ## Usage
 To use the team profile generator application complete the following steps:
-1. The purpose of this application is to generate a team profile webpage based on user input, so if you need of a nicely formatted team roster for your company this is the application for you. 
+1. The purpose of this application is to generate a team profile webpage based on user input, so if you need a nicely formatted team roster for your company this is the application for you. 
 2. After you have completed all of the above installation steps, you can now either test the application to see how it works and what the prompts ask, or you can jump right into creating your team profile.
 3. To begin running the application in the command line, type *node index.js* and this will start the program.
 4. If the program is running properly you should be confronted with some initial intro text and the first user prompt asking if you would like to start creating your team profile.
@@ -65,7 +66,7 @@ To use the team profile generator application complete the following steps:
 
 ## Tests
 
-Several tests were created for this application in order to ensure the worker classes were created properly. The tests ensure that each worker property and method function properly and return the intended information. If you would like to run the test suites for this application, follow these steps:
+Several tests were created for this application in order to ensure the worker classes were created properly. The tests ensure that each worker property and method return the intended information. If you would like to run the test suites for this application, follow these steps:
 1. Double check your package.json file to ensure the Jest package has been installed as a dev dependency
 2. Also check the json file to see that Jest is listed as the test value in the scripts object
 3. If Jest is not installed run *npm install*

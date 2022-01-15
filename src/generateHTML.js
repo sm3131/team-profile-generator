@@ -48,7 +48,7 @@ const generateHTML = function (workerArray) {
         body += item;
     }
 
-    return`<!DOCTYPE html>
+    return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
