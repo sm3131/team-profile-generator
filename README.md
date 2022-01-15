@@ -39,7 +39,7 @@ Click on the link below to watch the Screencastify video that walks the user thr
 
 
 Example Team Profile WebPage created by this application:
-![team-profile](./utils/images/)
+![team-profile](./src/images/team-profile-page.png)
 
 ## Installation
 To install the Team Profile Generator application complete the following steps:

@@ -109,7 +109,6 @@ StartPrompts.prototype.addTeamMember = function () {
             default: 'Finish Building Team'
         })
         .then(({ addWorkers }) => {
-            console.log(addWorkers);
             if (addWorkers === 'Engineer') {
                 this.addEngineer();
             } else if (addWorkers === 'Intern') {
