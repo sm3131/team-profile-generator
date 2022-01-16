@@ -36,7 +36,7 @@ If you would like to access the code for this application, please visit [GitHub]
 ## Preview
 
 Click on the link below to watch the Screencastify video that walks the user through proper usage of the application:
-
+https://watch.screencastify.com/v/3KweSvYYgkalfUrEw6dd
 
 Example Team Profile WebPage created by this application:
 ![team-profile](./src/images/team-profile-page.png)
